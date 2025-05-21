@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     
@@ -61,8 +62,20 @@ printf("\nVamos iniciar!\n");
     printf("Digite o seu pib: \n");
     scanf("%f", &pib2 );
 
-    printf("\nOs resultados finais de comparacao das cartas 1 e 2 foram: \n");
-
+int opcao;
+    printf("\nAs cartas foram registradas com sucesso!\n");
+    printf("\nEscolha um dos atributos para ver qual carta vencera:\n");
+    printf("1 - Populacao\n");
+    printf("2 - Area\n");
+    printf("3 - Densidade demografica\n");
+    printf("4 - PIB\n");
+    scanf("\n%d", &opcao);
+    printf("\nAtributo escolhido: %d\n", opcao);
+    
+    switch (opcao)
+    {
+    case 1:
+        printf("\nComparando a populacao das cartas...\n");
     if (populacao1 > populacao2) {
         printf("\nA carta 1 tem maior numero de habitantes do que a carta 2\n");
     } else if (populacao1 < populacao2) {
@@ -71,7 +84,9 @@ printf("\nVamos iniciar!\n");
             printf("As cartas tem o mesmo numero de habitantes\n");
         }
     }
-
+        break;
+        case 2:
+        printf("\nComparando a area das cartas...\n");
         if (area1 > area2) {
         printf("A carta 1 tem maior tamanho de terreno em km2 do que a carta 2\n");
     } else if (area1 < area2) {
@@ -80,15 +95,10 @@ printf("\nVamos iniciar!\n");
             printf("As cartas tem o mesmo tamanho de terreno em km2\n");
         }
     }
-
-    if (estado1 == estado2) {
-        printf("As cartas tem a cidade do mesmo estado\n");
-    } else if (estado1 != estado2) {
-        printf("");
-    }
-    
-
-    float densidade1 = (float)populacao1 / area1;
+    break;
+    case 3:
+    printf("\nComparando a densidade demografica das cartas...\n");
+float densidade1 = (float)populacao1 / area1;
     float densidade2 = (float)populacao2 / area2;
 
     printf("\nDensidade demografica da carta 1: %.2f\n", densidade1);
@@ -96,14 +106,16 @@ printf("\nVamos iniciar!\n");
 
 
     if (densidade1 > densidade2) {
-        printf("A carta 1 tem maior densidade demografica do que a carta 2.\n");
+        printf("A carta 2 tem melhor densidade demografica do que a carta 1.\n");
     } else if (densidade1 < densidade2) {
-        printf("A carta 2 tem maior densidade demografica do que a carta 1.\n");
+        printf("A carta 1 tem melhor densidade demografica do que a carta 2.\n");
     } else { (densidade1 == densidade2);
         printf("As cartas tem a mesma densidade demografica.\n");
     }
-
-    float pib_per_capita1 = (float)pib1 / populacao1;
+    break;
+    case 4:
+    printf("\nComparando o PIB das cartas...\n");
+float pib_per_capita1 = (float)pib1 / populacao1;
     float pib_per_capita2 = (float)pib2 / populacao2;
 
     printf("\nPib per capita da carta 1: %.2f\n", pib_per_capita1);
@@ -117,7 +129,19 @@ printf("\nVamos iniciar!\n");
             printf("As cartas tem o mesmo pib\n");
         }
     }
+    break;
+    
+    default:
+    printf("Opcao invalida.\n");
+        break;
+    }
 
+
+    if (estado1 == estado2) {
+        printf("\nCuriosidade: As cartas tem a cidade do mesmo estado\n");
+    } else if (estado1 != estado2) {
+        printf("");
+    }
+    
 return 0;
     } 
-
